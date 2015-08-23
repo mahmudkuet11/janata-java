@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="532.0" prefWidth="682.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.NewPurchaseVoucherController">
+   <children>
+       <fx:include source="layouts/Navbar.fxml" />
+      <Label layoutX="14.0" layoutY="37.0" text="New Purchase Voucher">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Separator layoutX="14.0" layoutY="64.0" prefHeight="4.0" prefWidth="655.0" />
+      <Label layoutX="14.0" layoutY="78.0" text="Date" />
+      <DatePicker fx:id="date" layoutX="14.0" layoutY="102.0" prefHeight="25.0" prefWidth="224.0" />
+      <Label layoutX="14.0" layoutY="141.0" text="Select Supplier" />
+      <ComboBox fx:id="supplier" layoutX="14.0" layoutY="165.0" prefHeight="25.0" prefWidth="224.0" />
+      <Label layoutX="294.0" layoutY="83.0" text="Note" />
+      <TextArea fx:id="note" layoutX="294.0" layoutY="105.0" prefHeight="84.0" prefWidth="365.0" />
+      <Separator layoutX="14.0" layoutY="207.0" prefHeight="17.0" prefWidth="655.0" />
+      <Label layoutX="13.0" layoutY="231.0" text="Select Category" />
+      <ComboBox fx:id="category" layoutX="13.0" layoutY="256.0" onAction="#onCategorySelect" prefHeight="25.0" prefWidth="224.0" />
+      <Label layoutX="14.0" layoutY="299.0" text="Caret" />
+      <ComboBox fx:id="caret" layoutX="14.0" layoutY="324.0" prefHeight="25.0" prefWidth="224.0" />
+      <Label layoutX="14.0" layoutY="366.0" text="Quantity" />
+      <TextField fx:id="quantity" layoutX="13.0" layoutY="390.0" prefHeight="25.0" prefWidth="224.0" />
+      <TextField fx:id="p_rate" layoutX="13.0" layoutY="449.0" prefHeight="25.0" prefWidth="224.0" />
+      <Label layoutX="14.0" layoutY="425.0" text="Purchase Rate" />
+      <Button layoutX="13.0" layoutY="493.0" mnemonicParsing="false" onAction="#onSaveButtonClick" text="Save" />
+   </children>
+</AnchorPane>

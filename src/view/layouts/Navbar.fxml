@@ -40,5 +40,11 @@
             <MenuItem mnemonicParsing="false" onAction="#onDeleteExpenseCategoryClick" text="Delete Expence Category" />
          </items>
       </Menu>
+      <Menu mnemonicParsing="false" text="Purchase Voucher">
+         <items>
+            <MenuItem mnemonicParsing="false" onAction="#onAddNewPurchaseVoucherClick" text="New Purchase Voucher" />
+            <MenuItem mnemonicParsing="false" onAction="#onViewPurchaseVoucherClick" text="View Purchase Voucher" />
+         </items>
+      </Menu>
         </menus>
       </MenuBar>
