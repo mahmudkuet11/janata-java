@@ -24,10 +24,10 @@
             <MenuItem mnemonicParsing="false" onAction="#onDeleteSupplierClick" text="Delete Supplier" />
             </items>
           </Menu>
-          <Menu mnemonicParsing="false" text="Help">
-            <items>
-              <MenuItem mnemonicParsing="false" text="About" />
-            </items>
-          </Menu>
+      <Menu mnemonicParsing="false" text="Item's Category">
+         <items>
+            <MenuItem mnemonicParsing="false" onAction="#onAddNewCategoryClick" text="Add New Category" />
+         </items>
+      </Menu>
         </menus>
       </MenuBar>
