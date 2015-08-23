@@ -32,5 +32,13 @@
             <MenuItem mnemonicParsing="false" onAction="#onDeleteCategoryClick" text="Delete Category" />
          </items>
       </Menu>
+      <Menu mnemonicParsing="false" text="Expense Category">
+         <items>
+            <MenuItem mnemonicParsing="false" onAction="#onAddNewExpenseCategoryClick" text="Add New Expense Category" />
+            <MenuItem mnemonicParsing="false" onAction="#onViewExpenseCategoryClick" text="View Expense Category" />
+            <MenuItem mnemonicParsing="false" onAction="#onEditCategoryClick" text="Edit Expense Category" />
+            <MenuItem mnemonicParsing="false" onAction="#onDeleteCategoryClick" text="Delete Expence Category" />
+         </items>
+      </Menu>
         </menus>
       </MenuBar>

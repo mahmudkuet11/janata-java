@@ -154,5 +154,15 @@ public class NavbarController implements Initializable {
         stage.setScene(scene);
         stage.setTitle("Delete Category");
     }
+
+    @FXML
+    private void onAddNewExpenseCategoryClick(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("/view/AddNewExpenseCategory.fxml"));
+        Scene scene = menubar.getScene();
+        Stage stage = (Stage)menubar.getScene().getWindow();
+        scene.setRoot(root);
+        stage.setScene(scene);
+        stage.setTitle("Add New Expense Category");
+    }
     
 }
