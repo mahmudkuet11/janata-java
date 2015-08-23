@@ -74,5 +74,19 @@ public class NavbarController implements Initializable {
         stage.setScene(scene);
         stage.setTitle("Delete Customer");
     }
+
+    @FXML
+    private void onAddNewSupplierClick(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("/view/AddNewSupplier.fxml"));
+        Scene scene = menubar.getScene();
+        Stage stage = (Stage)menubar.getScene().getWindow();
+        scene.setRoot(root);
+        stage.setScene(scene);
+        stage.setTitle("Add New Supplier");
+    }
+
+    @FXML
+    private void onViewSupplierClick(ActionEvent event) {
+    }
     
 }

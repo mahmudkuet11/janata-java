@@ -16,9 +16,15 @@
             <MenuItem mnemonicParsing="false" onAction="#onDeleteCustomerClick" text="Delete Customer" />
             </items>
           </Menu>
-          <Menu mnemonicParsing="false" text="Edit">
+          <Menu mnemonicParsing="false" text="Supplier">
             <items>
-              <MenuItem mnemonicParsing="false" text="Delete" />
+              <MenuItem mnemonicParsing="false" onAction="#onAddNewSupplierClick" text="Add New Supplier" />
+            <MenuItem mnemonicParsing="false" onAction="#onViewSupplierClick" text="View Supplier" />
+            <Menu mnemonicParsing="false" text="Edit">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="Delete" />
+               </items>
+            </Menu>
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Help">
