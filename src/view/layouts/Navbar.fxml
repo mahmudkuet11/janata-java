@@ -21,6 +21,7 @@
               <MenuItem mnemonicParsing="false" onAction="#onAddNewSupplierClick" text="Add New Supplier" />
             <MenuItem mnemonicParsing="false" onAction="#onViewSupplierClick" text="View Supplier" />
             <MenuItem mnemonicParsing="false" onAction="#onEditSupplierClick" text="Edit Supplier" />
+            <MenuItem mnemonicParsing="false" onAction="#onDeleteSupplierClick" text="Delete Supplier" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Help">
