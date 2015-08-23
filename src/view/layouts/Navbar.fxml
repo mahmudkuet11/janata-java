@@ -20,11 +20,7 @@
             <items>
               <MenuItem mnemonicParsing="false" onAction="#onAddNewSupplierClick" text="Add New Supplier" />
             <MenuItem mnemonicParsing="false" onAction="#onViewSupplierClick" text="View Supplier" />
-            <Menu mnemonicParsing="false" text="Edit">
-               <items>
-                  <MenuItem mnemonicParsing="false" text="Delete" />
-               </items>
-            </Menu>
+            <MenuItem mnemonicParsing="false" onAction="#onEditSupplierClick" text="Edit Supplier" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Help">

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.EditSupplierController">
+   <children>
+       <fx:include source="layouts/Navbar.fxml" />
+      <AnchorPane layoutX="54.0" layoutY="75.0" prefHeight="285.0" prefWidth="421.0" style="-fx-border-color: #e1e1e1;" AnchorPane.leftAnchor="70.0" AnchorPane.topAnchor="90.0">
+         <children>
+            <Label layoutX="25.0" layoutY="31.0" text="Select Supplier" />
+            <ComboBox fx:id="select_supplier" layoutX="146.0" layoutY="27.0" onAction="#onSupplierSelect" prefHeight="25.0" prefWidth="242.0" />
+            <Label layoutX="27.0" layoutY="73.0" text="Name" />
+            <TextField fx:id="name" layoutX="146.0" layoutY="69.0" prefHeight="25.0" prefWidth="242.0" />
+            <Label layoutX="27.0" layoutY="110.0" text="Phone" />
+            <TextField fx:id="phone" layoutX="146.0" layoutY="106.0" prefHeight="25.0" prefWidth="242.0" />
+            <Label layoutX="27.0" layoutY="143.0" text="Address" />
+            <TextArea fx:id="address" layoutX="146.0" layoutY="140.0" prefHeight="93.0" prefWidth="242.0" />
+            <Button layoutX="333.0" layoutY="246.0" mnemonicParsing="false" onAction="#onUpdateButtonClick" text="Update" />
+         </children>
+      </AnchorPane>
+      <Label layoutX="70.0" layoutY="67.0" text="Edit Supplier">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

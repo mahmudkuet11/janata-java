@@ -11,11 +11,19 @@ package model;
  */
 public class Supplier {
     private int sl;
+    private int id;
     private String name;
     private String phone;
     private String address;
     
     public Supplier(int sl, String name, String phone, String address){
+        this.sl = sl;
+        this.name = name;
+        this.phone = phone;
+        this.address  = address;
+    }
+    public Supplier(int sl, int id, String name, String phone, String address){
+        this.id = id;
         this.sl = sl;
         this.name = name;
         this.phone = phone;
@@ -52,5 +60,16 @@ public class Supplier {
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+    public String toString(){
+        return this.getName();
     }
 }
