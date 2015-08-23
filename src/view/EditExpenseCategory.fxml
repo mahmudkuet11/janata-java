@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.EditExpenseCategoryController">
+   <children>
+       <fx:include source="layouts/Navbar.fxml" />
+      <AnchorPane layoutX="54.0" layoutY="75.0" prefHeight="222.0" prefWidth="368.0" style="-fx-border-color: #e1e1e1;" AnchorPane.leftAnchor="70.0" AnchorPane.topAnchor="90.0">
+         <children>
+            <Label layoutX="25.0" layoutY="31.0" text="Select Expense Category" />
+            <ComboBox fx:id="select_exp_cat" layoutX="25.0" layoutY="54.0" onAction="#onExpenseCategorySelect" prefHeight="25.0" prefWidth="311.0" />
+            <Label layoutX="25.0" layoutY="101.0" text="Expense Category Name" />
+            <TextField fx:id="name" layoutX="25.0" layoutY="130.0" prefHeight="25.0" prefWidth="311.0" />
+            <Button layoutX="281.0" layoutY="174.0" mnemonicParsing="false" onAction="#onUpdateButtonClick" text="Update" />
+         </children>
+      </AnchorPane>
+      <Label layoutX="70.0" layoutY="67.0" text="Edit Expense Category">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
