@@ -28,6 +28,7 @@
          <items>
             <MenuItem mnemonicParsing="false" onAction="#onAddNewCategoryClick" text="Add New Category" />
             <MenuItem mnemonicParsing="false" onAction="#onViewCategoryClick" text="View Category" />
+            <MenuItem mnemonicParsing="false" onAction="#onEditCategoryClick" text="Edit Category" />
          </items>
       </Menu>
         </menus>

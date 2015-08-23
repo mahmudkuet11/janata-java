@@ -134,5 +134,15 @@ public class NavbarController implements Initializable {
         stage.setScene(scene);
         stage.setTitle("View Category");
     }
+
+    @FXML
+    private void onEditCategoryClick(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("/view/EditCategory.fxml"));
+        Scene scene = menubar.getScene();
+        Stage stage = (Stage)menubar.getScene().getWindow();
+        scene.setRoot(root);
+        stage.setScene(scene);
+        stage.setTitle("Edit Category");
+    }
     
 }
