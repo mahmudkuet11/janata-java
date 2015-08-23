@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AddNewSupplierController">
+    <children>
+       <fx:include source="layouts/Navbar.fxml" />
+      <AnchorPane layoutX="70.0" layoutY="90.0" prefHeight="244.0" prefWidth="402.0" style="-fx-border-color: #ccc;">
+         <children>
+            <Label layoutX="14.0" layoutY="14.0" text="Supplier's Name" />
+            <Label layoutX="14.0" layoutY="43.0" text="Supplier's Phone" />
+            <Label layoutX="14.0" layoutY="74.0" text="Supplier's Address" />
+            <TextField fx:id="name" layoutX="135.0" layoutY="10.0" prefHeight="25.0" prefWidth="243.0" />
+            <TextField fx:id="phone" layoutX="135.0" layoutY="39.0" prefHeight="25.0" prefWidth="243.0" />
+            <TextArea fx:id="address" layoutX="136.0" layoutY="74.0" prefHeight="116.0" prefWidth="243.0" />
+            <Button layoutX="286.0" layoutY="208.0" mnemonicParsing="false" onAction="#onSaveButtonClick" text="Save Customer" />
+         </children>
+      </AnchorPane>
+      <Label layoutX="70.0" layoutY="63.0" text="Add New Supplier">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
