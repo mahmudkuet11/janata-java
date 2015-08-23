@@ -13,6 +13,7 @@
               <MenuItem mnemonicParsing="false" onAction="#onAddNewCustomerClick" text="Add New Customer" />
             <MenuItem mnemonicParsing="false" onAction="#onViewCustomerClick" text="View Customer" />
             <MenuItem mnemonicParsing="false" onAction="#onEditCustomerClick" text="Edit Customer" />
+            <MenuItem mnemonicParsing="false" onAction="#onDeleteCustomerClick" text="Delete Customer" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Edit">

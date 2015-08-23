@@ -15,6 +15,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.MenuBar;
+import javafx.scene.control.MenuItem;
 import javafx.stage.Stage;
 
 /**
@@ -62,6 +63,16 @@ public class NavbarController implements Initializable {
         scene.setRoot(root);
         stage.setScene(scene);
         stage.setTitle("Edit Customer");
+    }
+
+    @FXML
+    private void onDeleteCustomerClick(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("/view/DeleteCustomer.fxml"));
+        Scene scene = menubar.getScene();
+        Stage stage = (Stage)menubar.getScene().getWindow();
+        scene.setRoot(root);
+        stage.setScene(scene);
+        stage.setTitle("Delete Customer");
     }
     
 }
