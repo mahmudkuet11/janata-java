@@ -86,7 +86,13 @@ public class NavbarController implements Initializable {
     }
 
     @FXML
-    private void onViewSupplierClick(ActionEvent event) {
+    private void onViewSupplierClick(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("/view/ViewSupplier.fxml"));
+        Scene scene = menubar.getScene();
+        Stage stage = (Stage)menubar.getScene().getWindow();
+        scene.setRoot(root);
+        stage.setScene(scene);
+        stage.setTitle("Add New Supplier");
     }
     
 }
