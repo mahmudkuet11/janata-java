@@ -202,7 +202,27 @@ public class NavbarController implements Initializable {
         Stage stage = (Stage)menubar.getScene().getWindow();
         scene.setRoot(root);
         stage.setScene(scene);
-        stage.setTitle("Delete Expense Category");
+        stage.setTitle("New Purchase Voucher");
+    }
+
+    @FXML
+    private void onViewPurchaseVoucherClick(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("/view/ViewPurchaseVoucher.fxml"));
+        Scene scene = menubar.getScene();
+        Stage stage = (Stage)menubar.getScene().getWindow();
+        scene.setRoot(root);
+        stage.setScene(scene);
+        stage.setTitle("View Purchase Voucher");
+    }
+
+    @FXML
+    private void onAddNewSaleVoucherClick(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("/view/NewSellVoucher.fxml"));
+        Scene scene = menubar.getScene();
+        Stage stage = (Stage)menubar.getScene().getWindow();
+        scene.setRoot(root);
+        stage.setScene(scene);
+        stage.setTitle("New Sale Voucher");
     }
     
 }

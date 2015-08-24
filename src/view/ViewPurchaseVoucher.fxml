@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="controller.ViewPurchaseVoucherController">
+   <children>
+       <fx:include source="layouts/Navbar.fxml" />
+      <Label layoutX="26.0" layoutY="42.0" text="View Purchase Voucher">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Separator layoutX="26.0" layoutY="71.0" prefHeight="0.0" prefWidth="548.0" />
+      <Label layoutX="26.0" layoutY="85.0" text="Start Date" />
+      <DatePicker layoutX="26.0" layoutY="110.0" prefHeight="25.0" prefWidth="208.0" />
+      <DatePicker layoutX="283.0" layoutY="110.0" prefHeight="25.0" prefWidth="208.0" />
+      <Label layoutX="283.0" layoutY="85.0" text="End Date" />
+      <Separator layoutX="26.0" layoutY="150.0" prefHeight="0.0" prefWidth="548.0" />
+      <Label layoutX="234.0" layoutY="236.0" text="Incomplete">
+         <font>
+            <Font name="System Bold" size="36.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

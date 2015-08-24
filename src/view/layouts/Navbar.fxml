@@ -46,5 +46,11 @@
             <MenuItem mnemonicParsing="false" onAction="#onViewPurchaseVoucherClick" text="View Purchase Voucher" />
          </items>
       </Menu>
+      <Menu mnemonicParsing="false" text="Sale Voucher">
+         <items>
+            <MenuItem mnemonicParsing="false" onAction="#onAddNewSaleVoucherClick" text="New Sale Voucher" />
+            <MenuItem mnemonicParsing="false" onAction="#onViewPurchaseVoucherClick" text="View Sale Voucher" />
+         </items>
+      </Menu>
         </menus>
       </MenuBar>
