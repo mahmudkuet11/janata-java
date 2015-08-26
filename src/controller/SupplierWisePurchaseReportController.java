@@ -18,11 +18,13 @@ import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import model.PurchaseReport;
+import model.Supplier;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -31,7 +33,7 @@ import org.json.JSONObject;
  *
  * @author mohar
  */
-public class PurchaseReportController implements Initializable {
+public class SupplierWisePurchaseReportController implements Initializable {
     @FXML
     private DatePicker start;
     @FXML
@@ -49,8 +51,6 @@ public class PurchaseReportController implements Initializable {
     @FXML
     private TableColumn<PurchaseReport, Integer> caret;
     @FXML
-    private TableColumn<PurchaseReport, String> supplier;
-    @FXML
     private TableColumn<PurchaseReport, Integer> quantity;
     @FXML
     private TableColumn<PurchaseReport, Float> rate;
@@ -60,6 +60,9 @@ public class PurchaseReportController implements Initializable {
     private TableColumn<PurchaseReport, String> note;
     
     private List<PurchaseReport> list;
+    @FXML
+    private ComboBox<Supplier> supplier;
+
     /**
      * Initializes the controller class.
      */
@@ -71,24 +74,43 @@ public class PurchaseReportController implements Initializable {
         date.setCellValueFactory(new PropertyValueFactory("date"));
         category.setCellValueFactory(new PropertyValueFactory("category"));
         caret.setCellValueFactory(new PropertyValueFactory("caret"));
-        supplier.setCellValueFactory(new PropertyValueFactory("supplier"));
         quantity.setCellValueFactory(new PropertyValueFactory("quantity"));
         rate.setCellValueFactory(new PropertyValueFactory("rate"));
         amount.setCellValueFactory(new PropertyValueFactory("amount"));
         note.setCellValueFactory(new PropertyValueFactory("note"));
         
+        try {
+            JSONArray res = Unirest.get(MetaData.baseUrl + "get/supplier").asJson().getBody().getArray();
+            for(int i=0; i<res.length(); i++){
+                JSONObject obj = res.getJSONObject(i);
+                int id = obj.getInt("id");
+                String name = obj.getString("name");
+                String phone = obj.getString("phone");
+                String address = obj.getString("address");
+                
+                this.supplier.getItems().add(new Supplier(0, id, name, phone, address));
+            }
+            
+        } catch (UnirestException ex) {
+            Logger.getLogger(EditSupplierController.class.getName()).log(Level.SEVERE, null, ex);
+            Msg.showError("");
+        }
     }    
 
     @FXML
     private void onShowReportClick(ActionEvent event) {
         this.table.getItems().clear();
         this.list.clear();
-        
         String start_date = this.start.getValue().toString();
         String end_date = this.end.getValue().toString();
+        if(this.supplier.getSelectionModel().isEmpty()){
+            Msg.showError("You must select a supplier.");
+            return;
+        }
+        int supplier_id = this.supplier.getSelectionModel().getSelectedItem().getId();
         
         try {
-            JSONArray res = Unirest.get(MetaData.baseUrl + "report/purchase")
+            JSONArray res = Unirest.get(MetaData.baseUrl + "report/purchase/" + supplier_id)
                     .queryString("start_date",start_date)
                     .queryString("end_date",end_date)
                     .asJson().getBody().getArray();
@@ -100,13 +122,12 @@ public class PurchaseReportController implements Initializable {
                 String date = obj.getString("date");
                 String category = obj.getString("category");
                 int caret = obj.getInt("caret");
-                String supplier = obj.getString("supplier");
                 int quantity = obj.getInt("quantity");
                 float rate = Float.parseFloat(obj.get("purchase_rate").toString());
                 float amount = Float.parseFloat(obj.get("total_amount").toString());
                 String note = obj.getString("note");
                 
-                this.list.add(new PurchaseReport(sl, id, date, category, caret, supplier, quantity, rate, amount, note));
+                this.list.add(new PurchaseReport(sl, id, date, category, caret, "", quantity, rate, amount, note));
             }
             
         } catch (UnirestException ex) {
