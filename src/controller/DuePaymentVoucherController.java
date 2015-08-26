@@ -171,6 +171,7 @@ public class DuePaymentVoucherController implements Initializable {
             }
         } catch (UnirestException ex) {
             Logger.getLogger(DuePaymentVoucherController.class.getName()).log(Level.SEVERE, null, ex);
+            Msg.showError("");
         }
     }
 

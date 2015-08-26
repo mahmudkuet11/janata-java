@@ -57,5 +57,10 @@
             <MenuItem mnemonicParsing="false" onAction="#onDuePaymentClick" text="Due Payment" />
          </items>
       </Menu>
+      <Menu mnemonicParsing="false" text="Expense Voucher">
+         <items>
+            <MenuItem mnemonicParsing="false" onAction="#onExpenseVoucherClick" text="Expense Voucher" />
+         </items>
+      </Menu>
         </menus>
       </MenuBar>

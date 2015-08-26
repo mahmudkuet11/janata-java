@@ -234,5 +234,15 @@ public class NavbarController implements Initializable {
         stage.setScene(scene);
         stage.setTitle("Due Payment");
     }
+
+    @FXML
+    private void onExpenseVoucherClick(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("/view/NewExpenseVoucher.fxml"));
+        Scene scene = menubar.getScene();
+        Stage stage = (Stage)menubar.getScene().getWindow();
+        scene.setRoot(root);
+        stage.setScene(scene);
+        stage.setTitle("Expense Voucher");
+    }
     
 }

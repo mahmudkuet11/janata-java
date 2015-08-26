@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="482.0" prefWidth="746.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="controller.NewExpenseVoucherController">
+   <children>
+       <fx:include source="layouts/Navbar.fxml" />
+      <AnchorPane layoutX="54.0" layoutY="68.0" prefHeight="347.0" prefWidth="401.0" style="-fx-border-color: #e1e1e1;" AnchorPane.leftAnchor="70.0" AnchorPane.topAnchor="90.0">
+         <children>
+            <Label layoutX="14.0" layoutY="26.0" text="Date" />
+            <DatePicker fx:id="date" layoutX="131.0" layoutY="22.0" prefHeight="25.0" prefWidth="241.0" />
+            <Label layoutX="13.0" layoutY="81.0" text="Select Expense Type" />
+            <ComboBox fx:id="category" layoutX="131.0" layoutY="77.0" prefHeight="25.0" prefWidth="241.0" />
+            <Label layoutX="14.0" layoutY="118.0" text="Amount" />
+            <TextField fx:id="amount" layoutX="131.0" layoutY="114.0" prefHeight="25.0" prefWidth="241.0" />
+            <Label layoutX="14.0" layoutY="152.0" text="Note" />
+            <TextArea fx:id="note" layoutX="131.0" layoutY="152.0" prefHeight="112.0" prefWidth="241.0" />
+            <Button defaultButton="true" layoutX="277.0" layoutY="288.0" mnemonicParsing="false" onAction="#onSubmitButtonClick" prefHeight="39.0" prefWidth="95.0" text="Submit" />
+         </children>
+      </AnchorPane>
+      <Label layoutX="70.0" layoutY="64.0" text="Expense Voucher">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
