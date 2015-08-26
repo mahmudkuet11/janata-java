@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="488.0" prefWidth="794.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="controller.LossWeightReportController">
+   <children>
+       <fx:include source="layouts/Navbar.fxml" />
+      <Label layoutX="14.0" layoutY="37.0" text="Loss Weight Report">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Separator layoutX="14.0" layoutY="64.0" prefHeight="1.0" prefWidth="694.0" />
+      <Label layoutX="14.0" layoutY="75.0" text="Start Date" />
+      <DatePicker fx:id="start" layoutX="14.0" layoutY="99.0" prefHeight="25.0" prefWidth="231.0" />
+      <DatePicker fx:id="end" layoutX="294.0" layoutY="99.0" prefHeight="25.0" prefWidth="231.0" />
+      <Label layoutX="294.0" layoutY="75.0" text="End Date" />
+      <Button defaultButton="true" layoutX="559.0" layoutY="77.0" mnemonicParsing="false" onAction="#onShowButtonClick" prefHeight="40.0" prefWidth="86.0" text="Show" />
+      <Separator layoutX="14.0" layoutY="134.0" prefHeight="1.0" prefWidth="694.0" />
+      <TableView fx:id="table" layoutX="14.0" layoutY="150.0" prefHeight="325.0" prefWidth="694.0">
+        <columns>
+          <TableColumn fx:id="sl" prefWidth="96.0" text="SL No." />
+          <TableColumn fx:id="date" prefWidth="121.0" text="Date" />
+            <TableColumn fx:id="category" prefWidth="223.0" text="Category" />
+            <TableColumn fx:id="caret" prefWidth="101.0" text="Caret" />
+            <TableColumn fx:id="loss" prefWidth="152.0" text="Loss" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>

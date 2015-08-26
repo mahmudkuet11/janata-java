@@ -294,5 +294,15 @@ public class NavbarController implements Initializable {
         stage.setScene(scene);
         stage.setTitle("Profit Loss Report");
     }
+
+    @FXML
+    private void onLossWeightReportClick(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("/view/LossWeightReport.fxml"));
+        Scene scene = menubar.getScene();
+        Stage stage = (Stage)menubar.getScene().getWindow();
+        scene.setRoot(root);
+        stage.setScene(scene);
+        stage.setTitle("Loss Weight Report");
+    }
     
 }
