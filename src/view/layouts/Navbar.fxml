@@ -62,5 +62,10 @@
             <MenuItem mnemonicParsing="false" onAction="#onExpenseVoucherClick" text="Expense Voucher" />
          </items>
       </Menu>
+      <Menu mnemonicParsing="false" text="Report">
+         <items>
+            <MenuItem mnemonicParsing="false" onAction="#onPurchaseReportClick" text="Purchase Report" />
+         </items>
+      </Menu>
         </menus>
       </MenuBar>
