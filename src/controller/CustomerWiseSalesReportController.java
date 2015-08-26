@@ -5,6 +5,8 @@
  */
 package controller;
 
+import com.mashape.unirest.http.HttpResponse;
+import com.mashape.unirest.http.JsonNode;
 import com.mashape.unirest.http.Unirest;
 import com.mashape.unirest.http.exceptions.UnirestException;
 import helpers.MetaData;
@@ -18,10 +20,12 @@ import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import model.Customer;
 import model.SalesReport;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -31,7 +35,7 @@ import org.json.JSONObject;
  *
  * @author mohar
  */
-public class SalesReportController implements Initializable {
+public class CustomerWiseSalesReportController implements Initializable {
     @FXML
     private DatePicker start;
     @FXML
@@ -46,8 +50,6 @@ public class SalesReportController implements Initializable {
     private TableColumn<SalesReport, String> category;
     @FXML
     private TableColumn<SalesReport, Integer> caret;
-    @FXML
-    private TableColumn<SalesReport, String> customer;
     @FXML
     private TableColumn<SalesReport, Integer> qty;
     @FXML
@@ -66,6 +68,8 @@ public class SalesReportController implements Initializable {
     private TableView<SalesReport> table;
     
     private List<SalesReport> list;
+    @FXML
+    private ComboBox<Customer> customer;
 
     /**
      * Initializes the controller class.
@@ -79,7 +83,6 @@ public class SalesReportController implements Initializable {
         date.setCellValueFactory(new PropertyValueFactory("date"));
         category.setCellValueFactory(new PropertyValueFactory("category"));
         caret.setCellValueFactory(new PropertyValueFactory("caret"));
-        customer.setCellValueFactory(new PropertyValueFactory("customer"));
         qty.setCellValueFactory(new PropertyValueFactory("qty"));
         rate.setCellValueFactory(new PropertyValueFactory("rate"));
         total.setCellValueFactory(new PropertyValueFactory("total"));
@@ -87,6 +90,24 @@ public class SalesReportController implements Initializable {
         due.setCellValueFactory(new PropertyValueFactory("due"));
         loss.setCellValueFactory(new PropertyValueFactory("loss"));
         note.setCellValueFactory(new PropertyValueFactory("note"));
+        
+        try {
+            HttpResponse<JsonNode> res = Unirest.get(MetaData.baseUrl + "get/customer").asJson();
+            JSONArray array = res.getBody().getArray();
+            for(int i=0; i<array.length(); i++){
+                JSONObject obj = array.getJSONObject(i);
+                int id = obj.getInt("id");
+                String name = obj.getString("name");
+                String phone = obj.getString("phone");
+                String address = obj.getString("address");
+                
+                this.customer.getItems().add(new Customer(0, id, name, phone, address, 1));
+            }
+            
+        } catch (UnirestException ex) {
+            Logger.getLogger(EditCustomerController.class.getName()).log(Level.SEVERE, null, ex);
+            Msg.showError("");
+        }
     }    
 
     @FXML
@@ -95,9 +116,14 @@ public class SalesReportController implements Initializable {
         this.list.clear();
         String start = this.start.getValue().toString();
         String end = this.end.getValue().toString();
+        if(this.customer.getSelectionModel().isEmpty()){
+            Msg.showError("You must select a customer.");
+            return;
+        }
+        int customer_id = this.customer.getSelectionModel().getSelectedItem().getId();
         
         try {
-            JSONArray res = Unirest.get(MetaData.baseUrl + "report/sell")
+            JSONArray res = Unirest.get(MetaData.baseUrl + "report/sell/" + customer_id)
                     .queryString("start_date", start)
                     .queryString("end_date", end)
                     .asJson().getBody().getArray();
@@ -110,7 +136,6 @@ public class SalesReportController implements Initializable {
                 String date = obj.getString("date");
                 String category = obj.getString("category");
                 int caret = obj.getInt("caret");
-                String customer = obj.getString("customer");
                 int qty = obj.getInt("quantity");
                 float rate = Float.parseFloat(obj.get("sales_rate").toString());
                 float total = Float.parseFloat(obj.get("total_amount").toString());
@@ -119,7 +144,7 @@ public class SalesReportController implements Initializable {
                 float loss = Float.parseFloat(obj.get("loss").toString());
                 String note = obj.getString("note");
                 
-                this.list.add(new SalesReport(sl, id, date, category, caret, customer, qty, rate, total, paid, due, loss, note));
+                this.list.add(new SalesReport(sl, id, date, category, caret, "", qty, rate, total, paid, due, loss, note));
                 
             }
         } catch (UnirestException ex) {

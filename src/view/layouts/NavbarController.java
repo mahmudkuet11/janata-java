@@ -274,5 +274,15 @@ public class NavbarController implements Initializable {
         stage.setScene(scene);
         stage.setTitle("Sales Report");
     }
+
+    @FXML
+    private void onCustomerWiseSellReportClick(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("/view/CustomerWiseSalesReport.fxml"));
+        Scene scene = menubar.getScene();
+        Stage stage = (Stage)menubar.getScene().getWindow();
+        scene.setRoot(root);
+        stage.setScene(scene);
+        stage.setTitle("Customer Wise Sales Report");
+    }
     
 }

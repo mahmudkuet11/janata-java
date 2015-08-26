@@ -67,6 +67,7 @@
             <MenuItem mnemonicParsing="false" onAction="#onPurchaseReportClick" text="Purchase Report" />
             <MenuItem mnemonicParsing="false" onAction="#onSupplierWisePurchaseReportClick" text="Supplier Wise Purchase Report" />
             <MenuItem mnemonicParsing="false" onAction="#onSellReportClick" text="Sales Report" />
+            <MenuItem mnemonicParsing="false" onAction="#onCustomerWiseSellReportClick" text="Customer Wise Sales Report" />
          </items>
       </Menu>
         </menus>
