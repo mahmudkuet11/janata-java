@@ -324,5 +324,15 @@ public class NavbarController implements Initializable {
         stage.setScene(scene);
         stage.setTitle("Due Report");
     }
+
+    @FXML
+    private void onStockReportClick(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("/view/StockReport.fxml"));
+        Scene scene = menubar.getScene();
+        Stage stage = (Stage)menubar.getScene().getWindow();
+        scene.setRoot(root);
+        stage.setScene(scene);
+        stage.setTitle("Stock Report");
+    }
     
 }

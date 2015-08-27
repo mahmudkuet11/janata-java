@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="517.0" prefWidth="814.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="controller.StockReportController">
+   <children>
+       <fx:include source="layouts/Navbar.fxml" />
+      <Label layoutX="14.0" layoutY="36.0" text="Stock Report">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Separator layoutX="14.0" layoutY="65.0" prefHeight="6.0" prefWidth="787.0" />
+      <TableView fx:id="table" layoutX="14.0" layoutY="87.0" prefHeight="415.0" prefWidth="787.0">
+        <columns>
+          <TableColumn fx:id="sl" prefWidth="75.0" text="SL No." />
+          <TableColumn fx:id="item" prefWidth="172.0" text="Item" />
+            <TableColumn fx:id="caret18" prefWidth="151.0" text="18 Caret" />
+            <TableColumn fx:id="caret21" prefWidth="117.0" text="21 Caret" />
+            <TableColumn fx:id="caret22" prefWidth="129.0" text="22 Caret" />
+            <TableColumn fx:id="total" prefWidth="140.0" text="Total Quantity" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>
