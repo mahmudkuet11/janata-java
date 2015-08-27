@@ -73,6 +73,7 @@
             <MenuItem mnemonicParsing="false" onAction="#onExpenseReportClick" text="Expense Report" />
             <MenuItem mnemonicParsing="false" onAction="#onDueReportClick" text="Due Report" />
             <MenuItem mnemonicParsing="false" onAction="#onStockReportClick" text="Stock Report" />
+            <MenuItem mnemonicParsing="false" onAction="#onLowStockReportClick" text="Low Stock Report" />
          </items>
       </Menu>
         </menus>
