@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="534.0" prefWidth="1064.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="controller.DueReportController">
+   <children>
+       <fx:include source="layouts/Navbar.fxml" />
+      <Label layoutX="14.0" layoutY="44.0" text="Due Report">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Separator layoutX="14.0" layoutY="64.0" prefHeight="0.0" prefWidth="913.0" />
+      <Label layoutX="14.0" layoutY="78.0" text="Start Date" />
+      <DatePicker fx:id="start" layoutX="14.0" layoutY="103.0" prefHeight="25.0" prefWidth="202.0" />
+      <DatePicker fx:id="end" layoutX="261.0" layoutY="103.0" prefHeight="25.0" prefWidth="202.0" />
+      <Label layoutX="261.0" layoutY="78.0" text="End Date" />
+      <Button defaultButton="true" layoutX="503.0" layoutY="84.0" mnemonicParsing="false" onAction="#onShowButtonClick" prefHeight="39.0" prefWidth="88.0" text="Show" />
+      <Separator layoutX="16.0" layoutY="140.0" prefHeight="0.0" prefWidth="913.0" />
+      <TableView fx:id="table" layoutX="15.0" layoutY="157.0" prefHeight="364.0" prefWidth="1040.0">
+        <columns>
+          <TableColumn fx:id="sl" prefWidth="43.0" text="SL No." />
+          <TableColumn fx:id="id" prefWidth="54.0" text="Entry ID" />
+            <TableColumn fx:id="date" prefWidth="93.0" text="Date" />
+            <TableColumn fx:id="name" prefWidth="110.0" text="Customer Name" />
+            <TableColumn fx:id="phone" prefWidth="106.0" text="Phone" />
+            <TableColumn fx:id="address" prefWidth="101.0" text="Address" />
+            <TableColumn fx:id="item" prefWidth="102.0" text="Item" />
+            <TableColumn fx:id="caret" prefWidth="41.0" text="Caret" />
+            <TableColumn fx:id="qty" prefWidth="54.0" text="Quantity" />
+            <TableColumn fx:id="paid" prefWidth="76.0" text="Paid" />
+            <TableColumn fx:id="due" prefWidth="72.0" text="Due" />
+            <TableColumn fx:id="loss" prefWidth="73.0" text="Loss Weight" />
+            <TableColumn fx:id="note" prefWidth="114.0" text="Note" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>

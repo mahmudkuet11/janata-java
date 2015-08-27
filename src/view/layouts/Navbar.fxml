@@ -71,6 +71,7 @@
             <MenuItem mnemonicParsing="false" onAction="#onProfitLossStatementClick" text="Profit Loss Statement" />
             <MenuItem mnemonicParsing="false" onAction="#onLossWeightReportClick" text="Loss Weigth Report" />
             <MenuItem mnemonicParsing="false" onAction="#onExpenseReportClick" text="Expense Report" />
+            <MenuItem mnemonicParsing="false" onAction="#onDueReportClick" text="Due Report" />
          </items>
       </Menu>
         </menus>
