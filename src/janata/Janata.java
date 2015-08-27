@@ -20,13 +20,13 @@ public class Janata extends Application {
     
     @Override
     public void start(Stage stage) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("/view/Dashboard.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/view/Login.fxml"));
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.setResizable(true);
         stage.setFullScreen(false);
         stage.show();
-        stage.setTitle("DashBoard");
+        stage.setTitle("Login");
         //stage.getIcons().setAll(new Image("/unitech4u.png"));
     }
 

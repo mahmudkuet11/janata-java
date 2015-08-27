@@ -344,5 +344,15 @@ public class NavbarController implements Initializable {
         stage.setScene(scene);
         stage.setTitle("Low Stock Report");
     }
+
+    @FXML
+    private void onLogoutClick(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("/view/Login.fxml"));
+        Scene scene = menubar.getScene();
+        Stage stage = (Stage)menubar.getScene().getWindow();
+        scene.setRoot(root);
+        stage.setScene(scene);
+        stage.setTitle("Login");
+    }
     
 }

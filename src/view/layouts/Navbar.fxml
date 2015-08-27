@@ -76,5 +76,10 @@
             <MenuItem mnemonicParsing="false" onAction="#onLowStockReportClick" text="Low Stock Report" />
          </items>
       </Menu>
+      <Menu mnemonicParsing="false" text="Account">
+         <items>
+            <MenuItem mnemonicParsing="false" onAction="#onLogoutClick" text="Logout" />
+         </items>
+      </Menu>
         </menus>
       </MenuBar>
