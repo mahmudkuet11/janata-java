@@ -53,13 +53,14 @@ public class EditCategoryController implements Initializable {
             int sl = 1;
             for(int i=0; i<res.length(); i++){
                 JSONObject obj = res.getJSONObject(i);
+                int id = obj.getInt("id");
                 String name = obj.getString("name");
                 float p_price = Float.parseFloat(obj.get("purchase_price").toString());
                 float s_price = Float.parseFloat(obj.get("sell_price").toString());
                 int warning_qty = obj.getInt("warning_quantity");
                 int current_qty = obj.getInt("current_quantity");
                 
-                this.category_list.add(new Category(sl, 0, name, p_price, s_price, warning_qty, current_qty));
+                this.category_list.add(new Category(sl, id, name, p_price, s_price, warning_qty, current_qty));
                 
                 sl++;
             }
@@ -80,7 +81,7 @@ public class EditCategoryController implements Initializable {
         
         try {
             String res = Unirest.post(MetaData.baseUrl + "edit/category")
-                    .field("id", 2)
+                    .field("id", id)
                     .field("name", name)
                     .field("purchase_price", Float.parseFloat(p_price))
                     .field("sell_price", Float.parseFloat(s_price))
@@ -93,6 +94,9 @@ public class EditCategoryController implements Initializable {
                 Msg.showError("");
             }
         } catch (UnirestException ex) {
+            Logger.getLogger(EditCategoryController.class.getName()).log(Level.SEVERE, null, ex);
+            Msg.showError("");
+        }catch (Exception ex) {
             Logger.getLogger(EditCategoryController.class.getName()).log(Level.SEVERE, null, ex);
             Msg.showError("");
         }
