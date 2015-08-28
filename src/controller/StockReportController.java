@@ -9,18 +9,25 @@ import com.mashape.unirest.http.Unirest;
 import com.mashape.unirest.http.exceptions.UnirestException;
 import helpers.MetaData;
 import helpers.Msg;
+import helpers.Report;
 import java.net.URL;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.HashMap;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.collections.FXCollections;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import model.StockReport;
+import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -79,5 +86,34 @@ public class StockReportController implements Initializable {
             this.table.getItems().addAll(list);
         }
     }    
+
+    @FXML
+    private void onExportButtonClick(ActionEvent event) {
+        this.list.clear();
+        try {
+            JSONArray res = Unirest.get(MetaData.baseUrl + "report/stock").asJson().getBody().getArray();
+            for(int i=0; i<res.length(); i++){
+                JSONObject obj = res.getJSONObject(i);
+                int sl = obj.getInt("sl");
+                String item = obj.getString("category");
+                int caret18 = obj.getInt("caret18");
+                int caret21 = obj.getInt("caret21");
+                int caret22 = obj.getInt("caret22");
+                int total = obj.getInt("total");
+                
+                this.list.add(new StockReport(sl, item, caret18, caret21, caret22, total));
+            }
+            
+            Report report = new Report();
+            Vector v = new Vector();
+            HashMap params = new HashMap();
+            v.addAll(list);
+            
+            report.getReport("src\\report\\StockReport.jrxml", new JRBeanCollectionDataSource(v), params);
+        } catch (UnirestException ex) {
+            Logger.getLogger(StockReportController.class.getName()).log(Level.SEVERE, null, ex);
+            Msg.showError("");
+        }
+    }
     
 }

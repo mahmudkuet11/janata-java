@@ -7,7 +7,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="517.0" prefWidth="814.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="controller.StockReportController">
+<AnchorPane id="AnchorPane" prefHeight="568.0" prefWidth="814.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.StockReportController">
    <children>
        <fx:include source="layouts/Navbar.fxml" />
       <Label layoutX="14.0" layoutY="36.0" text="Stock Report">
@@ -26,5 +26,6 @@
             <TableColumn fx:id="total" prefWidth="140.0" text="Total Quantity" />
         </columns>
       </TableView>
+      <Button defaultButton="true" layoutX="696.0" layoutY="514.0" mnemonicParsing="false" onAction="#onExportButtonClick" prefHeight="43.0" prefWidth="104.0" text="Export Report" />
    </children>
 </AnchorPane>
