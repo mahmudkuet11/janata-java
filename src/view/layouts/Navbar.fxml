@@ -82,6 +82,7 @@
       </Menu>
       <Menu mnemonicParsing="false" text="Account">
          <items>
+            <MenuItem mnemonicParsing="false" onAction="#onChangePasswordClick" text="Change Password" />
             <MenuItem mnemonicParsing="false" onAction="#onLogoutClick" text="Logout" />
          </items>
       </Menu>
