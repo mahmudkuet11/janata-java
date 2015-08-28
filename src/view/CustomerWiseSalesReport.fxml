@@ -19,7 +19,7 @@
       <DatePicker fx:id="start" layoutX="14.0" layoutY="101.0" prefHeight="25.0" prefWidth="225.0" />
       <Label layoutX="292.0" layoutY="76.0" text="End Date" />
       <DatePicker fx:id="end" layoutX="292.0" layoutY="101.0" prefHeight="25.0" prefWidth="225.0" />
-      <Button defaultButton="true" layoutX="825.0" layoutY="81.0" mnemonicParsing="false" onAction="#onShowButtonClick" prefHeight="41.0" prefWidth="103.0" text="Show" />
+      <Button defaultButton="true" layoutX="780.0" layoutY="81.0" mnemonicParsing="false" onAction="#onShowButtonClick" prefHeight="41.0" prefWidth="103.0" text="Show Report" />
       <TableView fx:id="table" layoutX="14.0" layoutY="151.0" prefHeight="332.0" prefWidth="1047.0">
         <columns>
           <TableColumn fx:id="sl" prefWidth="57.0" text="SL No." />
@@ -40,5 +40,6 @@
       <Separator layoutX="14.0" layoutY="138.0" prefHeight="2.0" prefWidth="1047.0" />
       <Label layoutX="544.0" layoutY="76.0" text="Select Customer" />
       <ComboBox fx:id="customer" layoutX="544.0" layoutY="101.0" prefHeight="25.0" prefWidth="225.0" />
+      <Button defaultButton="true" layoutX="898.0" layoutY="81.0" mnemonicParsing="false" onAction="#onExportButtonClick" prefHeight="41.0" prefWidth="103.0" text="Export Report" />
    </children>
 </AnchorPane>

@@ -8,9 +8,14 @@ package controller;
 import com.mashape.unirest.http.Unirest;
 import helpers.MetaData;
 import helpers.Msg;
+import helpers.Report;
 import java.net.URL;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.HashMap;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.collections.FXCollections;
@@ -22,6 +27,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import model.DueReport;
+import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -121,6 +127,55 @@ public class DueReportController implements Initializable {
             Msg.showError("");
         }finally{
             this.table.getItems().addAll(list);
+        }
+    }
+
+    @FXML
+    private void onExportButtonClick(ActionEvent event) {
+        this.list.clear();
+        String start = this.start.getValue().toString();
+        String end = this.end.getValue().toString();
+        
+        try {
+            JSONArray res = Unirest.get(MetaData.baseUrl + "report/due")
+                    .queryString("start_date", start)
+                    .queryString("end_date", end)
+                    .asJson().getBody().getArray();
+            for(int i=0; i<res.length(); i++){
+                JSONObject obj = res.getJSONObject(i);
+                int sl = obj.getInt("sl");
+                int id = obj.getInt("entry_id");
+                String date = obj.getString("date");
+                String name = obj.getString("customer_name");
+                String phone = obj.getString("phone");
+                String address = obj.getString("address");
+                String item = obj.getString("category");
+                int caret = obj.getInt("caret");
+                int qty = obj.getInt("quantity");
+                float paid = Float.parseFloat(obj.get("paid").toString());
+                float due = Float.parseFloat(obj.get("due").toString());
+                float loss = Float.parseFloat(obj.get("loss").toString());
+                String note = obj.getString("note");
+                this.list.add(new DueReport(sl, id, date, name, phone, address, item, caret, qty, paid, due, loss, note));
+                
+            }
+            
+            Report report = new Report();
+            Vector v = new Vector();
+            HashMap params = new HashMap();
+            v.addAll(list);
+            try {
+                start = new SimpleDateFormat("dd-MM-yyyy").format(new SimpleDateFormat("yyyy-MM-dd").parse(start));
+                end = new SimpleDateFormat("dd-MM-yyyy").format(new SimpleDateFormat("yyyy-MM-dd").parse(end));
+            } catch (ParseException ex) {
+                Logger.getLogger(PurchaseReportController.class.getName()).log(Level.SEVERE, null, ex);
+                Msg.showError("");
+            }
+            params.put("date", "From "+ start +" To " + end);
+            report.getReport("src\\report\\DueReport.jrxml", new JRBeanCollectionDataSource(v), params);
+        } catch (Exception ex) {
+            Logger.getLogger(DueReportController.class.getName()).log(Level.SEVERE, null, ex);
+            Msg.showError("");
         }
     }
     
