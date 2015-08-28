@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.0.4.final using JasperReports Library version 6.0.4  -->
+<!-- 2015-08-28T17:56:12 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Token" pageWidth="300" pageHeight="170" columnWidth="260" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="cbcdda7a-6572-41d2-8b86-d23071398f1a">
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageHeight" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.topMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.bottomMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.leftMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.rightMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnSpacing" value="pixel"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<parameter name="date" class="java.lang.String"/>
+	<parameter name="name" class="java.lang.String"/>
+	<parameter name="total" class="java.lang.String"/>
+	<parameter name="loss" class="java.lang.String"/>
+	<parameter name="weight" class="java.lang.String"/>
+	<parameter name="seal" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="126" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="104" height="21" uuid="d671a6f9-d62e-429b-8885-862a7053cb97"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="13" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Date:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="21" width="104" height="21" uuid="36795e22-4b46-40b9-bbe9-e68760d5fece"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="13" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Name:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="42" width="104" height="21" uuid="ae013b4d-3532-4eff-84c5-66a2ed478fc5"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="13" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total Weight:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="63" width="104" height="21" uuid="14fb2912-a03e-4459-8285-5ba0d8f3d743"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="13" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Loss:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="84" width="104" height="21" uuid="1c70f4a1-4f24-4b87-a44a-3c1c436b8ed7"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="13" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Weight Without Loss:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="105" width="104" height="21" uuid="997da0bb-c4d3-42a0-802c-115a5ca12434"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="13" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Weight of Seal:]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="104" y="0" width="136" height="21" uuid="b5f5cb6f-2d3a-4d37-802c-9089c3aa62b5"/>
+				<box>
+					<bottomPen lineWidth="0.4" lineStyle="Dashed"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font isItalic="true"/>
+					<paragraph leftIndent="5"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{date}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="104" y="21" width="136" height="21" uuid="c365750e-7da3-44ff-bca1-f4ef3e83ea0f"/>
+				<box>
+					<bottomPen lineWidth="0.4" lineStyle="Dashed"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font isItalic="true"/>
+					<paragraph leftIndent="5"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{name}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="104" y="42" width="136" height="21" uuid="4b1c095f-4b20-4586-9b13-4a3d6d41f3f5"/>
+				<box>
+					<bottomPen lineWidth="0.4" lineStyle="Dashed"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font isItalic="true"/>
+					<paragraph leftIndent="5"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{total}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="104" y="63" width="136" height="21" uuid="80ca1862-d13f-47ed-adc8-3c02c874a91b"/>
+				<box>
+					<bottomPen lineWidth="0.4" lineStyle="Dashed"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font isItalic="true"/>
+					<paragraph leftIndent="5"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{loss}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="104" y="84" width="136" height="21" uuid="0bb97f9c-b63d-4f80-95c5-4c07479586aa"/>
+				<box>
+					<bottomPen lineWidth="0.4" lineStyle="Dashed"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font isItalic="true"/>
+					<paragraph leftIndent="5"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{weight}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="104" y="105" width="136" height="21" uuid="a27e4264-9a1e-40ab-8e8a-5427a805e56b"/>
+				<box>
+					<bottomPen lineWidth="0.4" lineStyle="Dashed"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font isItalic="true"/>
+					<paragraph leftIndent="5"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{seal}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+</jasperReport>

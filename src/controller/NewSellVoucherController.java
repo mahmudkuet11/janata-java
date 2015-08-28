@@ -11,8 +11,13 @@ import com.mashape.unirest.http.Unirest;
 import com.mashape.unirest.http.exceptions.UnirestException;
 import helpers.MetaData;
 import helpers.Msg;
+import helpers.Report;
 import java.net.URL;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.HashMap;
 import java.util.ResourceBundle;
+import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.event.ActionEvent;
@@ -25,6 +30,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import model.Category;
 import model.Customer;
+import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -72,6 +78,8 @@ public class NewSellVoucherController implements Initializable {
     private Button submit;
     @FXML
     private TextArea note;
+    @FXML
+    private Button submit1;
 
     /**
      * Initializes the controller class.
@@ -178,12 +186,83 @@ public class NewSellVoucherController implements Initializable {
             System.out.println(res);
             if(res.equals("1")){
                 Msg.showInformation("Sell Voucher hass been added successfully.");
+                
+                Report report = new Report();
+                Vector v = new Vector();
+                v.add("ada");
+                HashMap params = new HashMap();
+                date = new SimpleDateFormat("dd-MM-yyyy").format(new SimpleDateFormat("yyyy-MM-dd").parse(date));
+                params.put("date", date);
+                date = new SimpleDateFormat("dd-MM-yyyy").format(new SimpleDateFormat("yyyy-MM-dd").parse(this.delivery_date.getValue().toString()));
+                params.put("delivery_date", date);
+                params.put("item", this.item.getSelectionModel().getSelectedItem().getName());
+                params.put("caret", this.caret.getSelectionModel().getSelectedItem());
+                params.put("quantity", this.quantity.getText());
+                params.put("rate", this.rate.getText());
+                params.put("total", this.total.getText());
+                params.put("paid", this.paid.getText());
+                params.put("due", this.due.getText());
+                params.put("name", this.name.getText());
+                params.put("address", this.address.getText());
+                
+                report.getReport("src\\report\\SellVoucher.jrxml", new JRBeanCollectionDataSource(v), params);
+                
+                params.clear();
+                params.put("date", new SimpleDateFormat("dd-MM-yyyy").format(new SimpleDateFormat("yyyy-MM-dd").parse(this.date.getValue().toString())));
+                params.put("name", this.name.getText());
+                params.put("total", this.total_weight.getText());
+                params.put("loss", this.loss.getText());
+                params.put("weight", this.weight_without_loss.getText());
+                params.put("seal", this.seal.getText());
+                report.getReport("src\\report\\Token.jrxml", new JRBeanCollectionDataSource(v), params);
             }else{
                 Msg.showError("");
             }
         } catch (UnirestException ex) {
             Logger.getLogger(NewSellVoucherController.class.getName()).log(Level.SEVERE, null, ex);
             Msg.showError("");
+        } catch (ParseException ex) {
+            Logger.getLogger(NewSellVoucherController.class.getName()).log(Level.SEVERE, null, ex);
+            Msg.showError("Please enter the date correctly.");
+        }
+    }
+
+    @FXML
+    private void onPrintOnlyButtonClick(ActionEvent event) {
+        try {
+            String date = this.date.getValue().toString();
+            Report report = new Report();
+            Vector v = new Vector();
+            v.add("ada");
+            HashMap params = new HashMap();
+            date = new SimpleDateFormat("dd-MM-yyyy").format(new SimpleDateFormat("yyyy-MM-dd").parse(date));
+            params.put("date", date);
+            date = new SimpleDateFormat("dd-MM-yyyy").format(new SimpleDateFormat("yyyy-MM-dd").parse(this.delivery_date.getValue().toString()));
+            params.put("delivery_date", date);
+            params.put("item", this.item.getSelectionModel().getSelectedItem().getName());
+            params.put("caret", this.caret.getSelectionModel().getSelectedItem());
+            params.put("quantity", this.quantity.getText());
+            params.put("rate", this.rate.getText());
+            params.put("total", this.total.getText());
+            params.put("paid", this.paid.getText());
+            params.put("due", this.due.getText());
+            params.put("name", this.name.getText());
+            params.put("address", this.address.getText());
+            
+            report.getReport("src\\report\\SellVoucher.jrxml", new JRBeanCollectionDataSource(v), params);
+            
+            params.clear();
+            params.put("date", new SimpleDateFormat("dd-MM-yyyy").format(new SimpleDateFormat("yyyy-MM-dd").parse(this.date.getValue().toString())));
+            params.put("name", this.name.getText());
+            params.put("total", this.total_weight.getText());
+            params.put("loss", this.loss.getText());
+            params.put("weight", this.weight_without_loss.getText());
+            params.put("seal", this.seal.getText());
+            report.getReport("src\\report\\Token.jrxml", new JRBeanCollectionDataSource(v), params);
+        } catch (ParseException ex) {
+            Logger.getLogger(NewSellVoucherController.class.getName()).log(Level.SEVERE, null, ex);
+        }catch(Exception ex){
+            Msg.showError("Please enter all of the informations.");
         }
     }
     

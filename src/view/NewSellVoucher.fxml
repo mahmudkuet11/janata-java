@@ -7,7 +7,6 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
 <AnchorPane id="AnchorPane" prefHeight="656.0" prefWidth="774.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.NewSellVoucherController">
    <children>
        <fx:include source="layouts/Navbar.fxml" />
@@ -42,7 +41,7 @@
       <Label layoutX="450.0" layoutY="297.0" text="Due" />
       <TextField fx:id="due" layoutX="537.0" layoutY="293.0" prefHeight="25.0" prefWidth="217.0" />
       <Label layoutX="448.0" layoutY="225.0" text="Total Price" />
-      <TextField fx:id="total" editable="false" layoutX="537.0" layoutY="221.0" prefHeight="25.0" prefWidth="217.0" />
+      <TextField fx:id="total" layoutX="537.0" layoutY="221.0" prefHeight="25.0" prefWidth="217.0" />
       <Separator layoutX="19.0" layoutY="363.0" prefHeight="0.0" prefWidth="736.0" />
       <Separator layoutX="14.0" layoutY="58.0" prefHeight="0.0" prefWidth="736.0" />
       <Label layoutX="19.0" layoutY="417.0" text="Total Weight" />
@@ -53,12 +52,17 @@
       <TextField fx:id="weight_without_loss" layoutX="177.0" layoutY="481.0" prefHeight="25.0" prefWidth="217.0" />
       <Label layoutX="20.0" layoutY="517.0" text="Weight of Seal" />
       <TextField fx:id="seal" layoutX="130.0" layoutY="513.0" prefHeight="25.0" prefWidth="217.0" />
-      <Button fx:id="submit" defaultButton="true" layoutX="549.0" layoutY="491.0" mnemonicParsing="false" onAction="#onSubmitButtonClick" prefHeight="70.0" prefWidth="141.0" text="Submit">
+      <Button fx:id="submit" defaultButton="true" layoutX="549.0" layoutY="437.0" mnemonicParsing="false" onAction="#onSubmitButtonClick" prefHeight="70.0" prefWidth="141.0" text="Submit">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Button>
       <Label layoutX="24.0" layoutY="554.0" text="Note" />
       <TextArea fx:id="note" layoutX="133.0" layoutY="555.0" prefHeight="60.0" prefWidth="217.0" />
+      <Button fx:id="submit1" defaultButton="true" layoutX="549.0" layoutY="520.0" mnemonicParsing="false" onAction="#onPrintOnlyButtonClick" prefHeight="70.0" prefWidth="141.0" text="Print Only">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.0.4.final using JasperReports Library version 6.0.4  -->
+<!-- 2015-08-28T17:34:06 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="SellVoucher" pageWidth="595" pageHeight="400" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="ac9951c7-7601-4f13-a2e0-3af4af261d95">
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageHeight" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.topMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.bottomMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.leftMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.rightMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnSpacing" value="pixel"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<parameter name="total" class="java.lang.String"/>
+	<parameter name="paid" class="java.lang.String"/>
+	<parameter name="due" class="java.lang.String"/>
+	<parameter name="name" class="java.lang.String"/>
+	<parameter name="address" class="java.lang.String"/>
+	<parameter name="item" class="java.lang.String"/>
+	<parameter name="caret" class="java.lang.String"/>
+	<parameter name="quantity" class="java.lang.String"/>
+	<parameter name="rate" class="java.lang.String"/>
+	<parameter name="date" class="java.lang.String"/>
+	<parameter name="delivery_date" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="360" splitType="Stretch">
+			<frame>
+				<reportElement x="0" y="0" width="555" height="360" uuid="b04456f8-6801-417d-8fb6-9492c10a905b"/>
+				<box>
+					<topPen lineWidth="1.6" lineStyle="Dashed"/>
+					<leftPen lineWidth="1.6" lineStyle="Dashed"/>
+					<bottomPen lineWidth="1.6" lineStyle="Dashed"/>
+					<rightPen lineWidth="1.6" lineStyle="Dashed"/>
+				</box>
+				<staticText>
+					<reportElement x="81" y="11" width="220" height="49" uuid="68e47da3-23e6-48ad-979b-96b23058c99c"/>
+					<textElement textAlignment="Left">
+						<font size="35" isBold="true"/>
+					</textElement>
+					<text><![CDATA[CHANDRANI]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="301" y="26" width="130" height="33" uuid="9471f413-039b-4d95-8060-e095e36042e1"/>
+					<textElement>
+						<font size="20" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Parlse House]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="180" y="61" width="200" height="13" uuid="b04fda45-73cf-4105-a768-478410944e41"/>
+					<textElement textAlignment="Center"/>
+					<text><![CDATA[175, K.D.A. Newmarket, Khulna]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="130" y="75" width="301" height="15" uuid="5e4ab947-273a-4902-9d1b-a50d98539360"/>
+					<textElement textAlignment="Center"/>
+					<text><![CDATA[Phone: showroom - 041-2832639    Mobile: 01717-965002
+]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="420" y="61" width="69" height="13" uuid="7e08d70b-a13f-4e73-aabe-865f10397392"/>
+					<textElement textAlignment="Right">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Date:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="420" y="75" width="69" height="15" uuid="70745d59-4a3a-4fde-9a47-ac69ff9ddf6e"/>
+					<textElement textAlignment="Right">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Delivery Date:]]></text>
+				</staticText>
+				<line>
+					<reportElement x="1" y="90" width="554" height="2" uuid="63d12f87-9b7b-49bb-85d9-c2bb2a0586c8"/>
+					<graphicElement>
+						<pen lineStyle="Dashed"/>
+					</graphicElement>
+				</line>
+				<frame>
+					<reportElement x="11" y="101" width="534" height="137" uuid="0ebc9bd4-b098-4144-9423-bc185e001faa"/>
+					<box>
+						<topPen lineWidth="0.6"/>
+						<leftPen lineWidth="0.6"/>
+						<bottomPen lineWidth="0.6"/>
+						<rightPen lineWidth="0.6"/>
+					</box>
+					<staticText>
+						<reportElement x="1" y="2" width="189" height="17" uuid="a62ab76e-1f9e-4d83-8f7f-5bb935c27b48"/>
+						<box>
+							<bottomPen lineWidth="0.4" lineStyle="Dotted"/>
+						</box>
+						<textElement textAlignment="Center">
+							<font isBold="true"/>
+						</textElement>
+						<text><![CDATA[Item Name]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="190" y="2" width="50" height="17" uuid="e3a43cba-0414-42c9-9680-a5a2f56fa230"/>
+						<box>
+							<bottomPen lineWidth="0.4" lineStyle="Dotted"/>
+						</box>
+						<textElement textAlignment="Center">
+							<font isBold="true"/>
+						</textElement>
+						<text><![CDATA[Caret]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="240" y="2" width="62" height="17" uuid="664ed0e8-b3ef-4c86-8219-2bdb015d5dc4"/>
+						<box>
+							<bottomPen lineWidth="0.4" lineStyle="Dotted"/>
+						</box>
+						<textElement textAlignment="Center">
+							<font isBold="true"/>
+						</textElement>
+						<text><![CDATA[Quantity]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="302" y="2" width="109" height="17" uuid="e99ce58d-b302-4add-ad76-f36da6aae064"/>
+						<box>
+							<bottomPen lineWidth="0.4" lineStyle="Dotted"/>
+						</box>
+						<textElement textAlignment="Center">
+							<font isBold="true"/>
+						</textElement>
+						<text><![CDATA[Rate]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="411" y="2" width="122" height="17" uuid="ea52ba06-de00-4c04-97fa-b674b0a90e46"/>
+						<box>
+							<bottomPen lineWidth="0.4" lineStyle="Dotted"/>
+						</box>
+						<textElement textAlignment="Center">
+							<font isBold="true"/>
+						</textElement>
+						<text><![CDATA[Taka]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="412" y="21" width="122" height="17" uuid="731cd0c3-2822-4562-a236-435831767459"/>
+						<box>
+							<bottomPen lineWidth="0.0" lineStyle="Dotted"/>
+						</box>
+						<textElement textAlignment="Left">
+							<font isBold="true"/>
+						</textElement>
+						<text><![CDATA[Total Taka:]]></text>
+					</staticText>
+					<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+						<reportElement x="412" y="38" width="121" height="22" uuid="cf35893b-b7ce-496f-a064-eee6a0fac255"/>
+						<textFieldExpression><![CDATA[$P{total}]]></textFieldExpression>
+					</textField>
+					<staticText>
+						<reportElement x="412" y="60" width="121" height="17" uuid="9ac84d2c-df76-41d3-8a4a-bf210e201017"/>
+						<box>
+							<bottomPen lineWidth="0.0" lineStyle="Dotted"/>
+						</box>
+						<textElement textAlignment="Left">
+							<font isBold="true"/>
+						</textElement>
+						<text><![CDATA[Paid:]]></text>
+					</staticText>
+					<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+						<reportElement x="412" y="77" width="120" height="21" uuid="204e2ffe-6d82-4085-972b-fcdc13060ab3"/>
+						<textFieldExpression><![CDATA[$P{paid}]]></textFieldExpression>
+					</textField>
+					<staticText>
+						<reportElement x="412" y="99" width="122" height="17" uuid="66df5f67-d3b1-41b2-a319-12d5dcf8769a"/>
+						<box>
+							<bottomPen lineWidth="0.0" lineStyle="Dotted"/>
+						</box>
+						<textElement textAlignment="Left">
+							<font isBold="true"/>
+						</textElement>
+						<text><![CDATA[Due:]]></text>
+					</staticText>
+					<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+						<reportElement x="412" y="116" width="121" height="21" uuid="38fa6c03-0c65-4906-95fc-32f12bd93293"/>
+						<textFieldExpression><![CDATA[$P{due}]]></textFieldExpression>
+					</textField>
+					<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+						<reportElement x="2" y="21" width="188" height="116" uuid="cab95ebd-6e51-4488-aaaf-682c914d36da"/>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font isBold="false" isItalic="true"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$P{item}]]></textFieldExpression>
+					</textField>
+					<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+						<reportElement x="190" y="21" width="50" height="116" uuid="c97e6c52-c636-46e3-a7f2-98508ec0cf0f"/>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font isItalic="true"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$P{caret}]]></textFieldExpression>
+					</textField>
+					<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+						<reportElement x="240" y="21" width="62" height="116" uuid="cd9587ca-94f2-4b9d-8683-0b96b16b5d9b"/>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font isItalic="true"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$P{quantity}]]></textFieldExpression>
+					</textField>
+					<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+						<reportElement x="302" y="21" width="107" height="116" uuid="17993f80-601e-4c3a-a819-22e7920c6f78"/>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font isItalic="true"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$P{rate}]]></textFieldExpression>
+					</textField>
+				</frame>
+				<staticText>
+					<reportElement x="12" y="241" width="48" height="19" uuid="a1f4e82f-6532-4bff-a9f2-b4559d8d9768"/>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font isBold="true" isItalic="true"/>
+					</textElement>
+					<text><![CDATA[Name:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="12" y="260" width="48" height="20" uuid="d2917fda-0eec-4bad-99ce-3f9db55c5f9e"/>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font isBold="true" isItalic="true"/>
+					</textElement>
+					<text><![CDATA[Address:]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement x="60" y="241" width="220" height="19" uuid="b4e460cc-503f-4768-87eb-8b5f59afafc2"/>
+					<box>
+						<bottomPen lineWidth="0.4" lineStyle="Dashed"/>
+					</box>
+					<textElement verticalAlignment="Middle"/>
+					<textFieldExpression><![CDATA[$P{name}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement x="60" y="260" width="220" height="20" uuid="09982461-f0a3-4fc9-b42c-ad2d6b9794eb"/>
+					<box>
+						<bottomPen lineWidth="0.4" lineStyle="Dashed"/>
+					</box>
+					<textElement verticalAlignment="Middle"/>
+					<textFieldExpression><![CDATA[$P{address}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="301" y="270" width="119" height="20" uuid="990ece79-7b8d-4a97-b845-c492666e4e3e"/>
+					<box>
+						<topPen lineWidth="0.5"/>
+					</box>
+					<textElement textAlignment="Center">
+						<font size="11" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Customer's Sig.]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="432" y="271" width="119" height="20" uuid="6d497ede-2b11-436e-ba5a-95176b802b22"/>
+					<box>
+						<topPen lineWidth="0.5"/>
+					</box>
+					<textElement textAlignment="Center">
+						<font size="11" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Seller's Sig.]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="11" y="301" width="540" height="29" uuid="d7a1a125-c4d4-4ace-846f-739461410083"/>
+					<textElement>
+						<font fontName="Arial Narrow" size="9" isItalic="true"/>
+					</textElement>
+					<text><![CDATA[Thank ypu to visit our Show Room. We purchase our sold ornaments on cash by deducting the sost stone making charge and 20%, Silver 25% at the time of exchange. In all cases rules and regulations of the Bangladesh Jewelers Association are applicable. Please bring the cash memo at the time of sale and exchange.]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="180" y="331" width="200" height="19" uuid="f911e1bb-e9b2-4ace-bc66-770aefe84e25"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle"/>
+					<text><![CDATA[Tuesday Full Close]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement x="489" y="61" width="62" height="13" uuid="6ad5f3c1-a2d5-4e10-8818-a733387f8a50"/>
+					<textFieldExpression><![CDATA[$P{date}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement x="489" y="75" width="62" height="15" uuid="09ddcf48-ecf0-485f-abbc-ffc175949935"/>
+					<textFieldExpression><![CDATA[$P{delivery_date}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</title>
+</jasperReport>
