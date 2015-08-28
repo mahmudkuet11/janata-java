@@ -10,6 +10,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 /**
@@ -20,11 +21,11 @@ public class Janata extends Application {
     
     @Override
     public void start(Stage stage) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("/view/Dashboard.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/view/Login.fxml"));
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.setResizable(true);
-        stage.setFullScreen(false);
+        stage.setFullScreen(true);
         stage.show();
         stage.setTitle("Login");
         //stage.getIcons().setAll(new Image("/unitech4u.png"));
