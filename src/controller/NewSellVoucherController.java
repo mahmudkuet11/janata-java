@@ -183,8 +183,12 @@ public class NewSellVoucherController implements Initializable {
                     .field("note", note)
                     .field("items_info", array)
                     .asString().getBody();
-            System.out.println(res);
-            if(res.equals("1")){
+            String res2 = Unirest.post(MetaData.baseUrl + "cash/deposit")
+                    .queryString("date",date)
+                    .queryString("narration","sold "+ quantity +" piece "  + this.item.getSelectionModel().getSelectedItem().getName() + " to " + this.name.getText() + " with due " + due)
+                    .queryString("amount",paid)
+                    .asString().getBody();
+            if(res.equals("1") && res2.equals("1")){
                 Msg.showInformation("Sell Voucher hass been added successfully.");
                 
                 Report report = new Report();

@@ -76,8 +76,12 @@ public class NewExpenseVoucherController implements Initializable {
                     .field("description", note)
                     .field("amount", amount)
                     .asString().getBody();
-            
-            if(res.equals("1")){
+            String res2 = Unirest.post(MetaData.baseUrl + "cash/withdraw")
+                    .queryString("date",date)
+                    .queryString("narration", "Expense for " + this.category.getSelectionModel().getSelectedItem().getName())
+                    .queryString("amount", amount)
+                    .asString().getBody();
+            if(res.equals("1") && res2.equals("1")){
                 Msg.showInformation("Expense Voucher has been saved.");
             }else{
                Msg.showError(""); 

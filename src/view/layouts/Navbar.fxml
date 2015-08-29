@@ -78,6 +78,7 @@
                <items>
                   <MenuItem mnemonicParsing="false" onAction="#onBankDepositClick" text="Bank Deposit" />
                   <MenuItem mnemonicParsing="false" onAction="#onBankReportClick" text="Bank Report" />
+                  <MenuItem mnemonicParsing="false" onAction="#onBankWithdrawClick" text="Bank Withdraw" />
                </items>
             </Menu>
          </items>
@@ -98,6 +99,7 @@
       </Menu>
       <Menu mnemonicParsing="false" text="Account">
          <items>
+            <MenuItem mnemonicParsing="false" onAction="#onHomeClick" text="Home" />
             <MenuItem mnemonicParsing="false" onAction="#onChangePasswordClick" text="Change Password" />
             <MenuItem mnemonicParsing="false" onAction="#onLogoutClick" text="Logout" />
          </items>

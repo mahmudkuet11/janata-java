@@ -67,6 +67,8 @@ public class CashReportController implements Initializable {
 
     @FXML
     private void onShowReportClick(ActionEvent event) {
+        this.table.getItems().clear();
+        this.list.clear();
         String start_date = this.start.getValue().toString();
         String end_date = this.end.getValue().toString();
         

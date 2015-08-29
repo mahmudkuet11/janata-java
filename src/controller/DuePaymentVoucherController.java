@@ -163,7 +163,12 @@ public class DuePaymentVoucherController implements Initializable {
                     .field("amount", amount)
                     .field("note", note)
                     .asString().getBody();
-            if(res.equals("1")){
+            String res2 = Unirest.post(MetaData.baseUrl + "cash/deposit")
+                    .queryString("date",date)
+                    .queryString("narration", "Receive due payment from " + this.customer.getSelectionModel().getSelectedItem().getName())
+                    .queryString("amount", amount)
+                    .asString().getBody();
+            if(res.equals("1") && res.equals("1")){
                 Msg.showInformation("Due has been received successfully.");
                 onShowButtonClick(null);    
             }else{

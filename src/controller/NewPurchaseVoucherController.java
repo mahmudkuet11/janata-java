@@ -105,8 +105,12 @@ public class NewPurchaseVoucherController implements Initializable {
                     .field("note", note)
                     .field("items_info", array)
                     .asString().getBody();
-            System.out.println(res);
-            if(res.equals("1")){
+            String res2 = Unirest.post(MetaData.baseUrl + "cash/withdraw")
+                    .queryString("date",date)
+                    .queryString("narration", "purchase "+ this.quantity.getText() +" piece "+ this.category.getSelectionModel().getSelectedItem().getName() +" from " + this.supplier.getSelectionModel().getSelectedItem().getName())
+                    .queryString("amount", quantity * p_rate)
+                    .asString().getBody();
+            if(res.equals("1") && res2.equals("1")){
                 Msg.showInformation("Purchase voucher has been added.");
             }else{
                 Msg.showError("");

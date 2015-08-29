@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="controller.BankWithdrawController">
+   <children>
+       <fx:include source="layouts/Navbar.fxml" />
+      <Label layoutX="70.0" layoutY="63.0" text="Bank Withdraw">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <AnchorPane layoutX="56.0" layoutY="100.0" prefHeight="200.0" prefWidth="397.0" style="-fx-border-color: #e1e1e1;" AnchorPane.leftAnchor="70.0" AnchorPane.topAnchor="90.0">
+         <children>
+            <Label layoutX="14.0" layoutY="14.0" text="Select Date" />
+            <DatePicker fx:id="date" layoutX="98.0" layoutY="10.0" prefHeight="25.0" prefWidth="211.0" />
+            <Label layoutX="14.0" layoutY="52.0" text="Amount" />
+            <TextField fx:id="amount" layoutX="98.0" layoutY="48.0" prefHeight="25.0" prefWidth="211.0" />
+            <Button layoutX="231.0" layoutY="88.0" mnemonicParsing="false" onAction="#onWithdrawClick" prefHeight="34.0" prefWidth="78.0" text="Withdraw" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
