@@ -384,5 +384,25 @@ public class NavbarController implements Initializable {
         stage.setScene(scene);
         stage.setTitle("Bank Deposit");
     }
+
+    @FXML
+    private void onCashReportClick(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("/view/CashReport.fxml"));
+        Scene scene = menubar.getScene();
+        Stage stage = (Stage)menubar.getScene().getWindow();
+        scene.setRoot(root);
+        stage.setScene(scene);
+        stage.setTitle("Cash Report");
+    }
+
+    @FXML
+    private void onBankReportClick(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("/view/BankReport.fxml"));
+        Scene scene = menubar.getScene();
+        Stage stage = (Stage)menubar.getScene().getWindow();
+        scene.setRoot(root);
+        stage.setScene(scene);
+        stage.setTitle("Bank Report");
+    }
     
 }

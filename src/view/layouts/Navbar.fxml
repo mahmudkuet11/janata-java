@@ -71,11 +71,13 @@
             <Menu mnemonicParsing="false" text="Cash Account">
               <items>
                 <MenuItem mnemonicParsing="false" onAction="#onCashDepositClick" text="Cash Deposit" />
+                  <MenuItem mnemonicParsing="false" onAction="#onCashReportClick" text="Cash Report" />
               </items>
             </Menu>
             <Menu mnemonicParsing="false" text="Bank Account">
                <items>
                   <MenuItem mnemonicParsing="false" onAction="#onBankDepositClick" text="Bank Deposit" />
+                  <MenuItem mnemonicParsing="false" onAction="#onBankReportClick" text="Bank Report" />
                </items>
             </Menu>
          </items>

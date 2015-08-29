@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="554.0" prefWidth="803.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.BankReportController">
+   <children>
+       <fx:include source="layouts/Navbar.fxml" />
+      <Label layoutX="14.0" layoutY="34.0" text="Bank Report">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Separator layoutX="14.0" layoutY="63.0" prefHeight="2.0" prefWidth="771.0" />
+      <Label layoutX="14.0" layoutY="76.0" text="Start Date" />
+      <DatePicker fx:id="start" layoutX="14.0" layoutY="100.0" prefHeight="25.0" prefWidth="218.0" />
+      <DatePicker fx:id="end" layoutX="267.0" layoutY="100.0" prefHeight="25.0" prefWidth="218.0" />
+      <Label layoutX="267.0" layoutY="76.0" text="End Date" />
+      <Button layoutX="517.0" layoutY="81.0" mnemonicParsing="false" onAction="#onShowReportClick" prefHeight="33.0" prefWidth="90.0" text="Show Report" />
+      <Separator layoutX="14.0" layoutY="134.0" prefHeight="2.0" prefWidth="771.0" />
+      <TableView fx:id="table" layoutX="14.0" layoutY="147.0" prefHeight="345.0" prefWidth="771.0">
+        <columns>
+          <TableColumn fx:id="sl" prefWidth="89.0" text="SL No." />
+          <TableColumn fx:id="date" prefWidth="124.0" text="Date" />
+            <TableColumn fx:id="narration" prefWidth="290.0" text="Narration" />
+            <TableColumn fx:id="amount" prefWidth="130.0" text="Amount" />
+            <TableColumn fx:id="balance" prefWidth="135.0" text="Balance" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>
