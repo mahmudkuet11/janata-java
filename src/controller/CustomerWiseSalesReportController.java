@@ -9,6 +9,7 @@ import com.mashape.unirest.http.HttpResponse;
 import com.mashape.unirest.http.JsonNode;
 import com.mashape.unirest.http.Unirest;
 import com.mashape.unirest.http.exceptions.UnirestException;
+import helpers.AutoCompleteComboBoxListener;
 import helpers.MetaData;
 import helpers.Msg;
 import helpers.Report;
@@ -32,6 +33,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import model.Customer;
 import model.SalesReport;
+import model.Supplier;
 import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -82,6 +84,18 @@ public class CustomerWiseSalesReportController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        
+        
+        new AutoCompleteComboBoxListener<>(this.customer);
+        this.customer.setOnHiding((e)->{
+            Customer a = this.customer.getSelectionModel().getSelectedItem();
+            this.customer.setEditable(false);
+            this.customer.getSelectionModel().select(a);
+        });
+        this.customer.setOnShowing((e)->{
+            this.customer.setEditable(true);
+        });
+        
         list = FXCollections.observableArrayList();
         
         sl.setCellValueFactory(new PropertyValueFactory("sl"));

@@ -7,6 +7,7 @@ package controller;
 
 import com.mashape.unirest.http.Unirest;
 import com.mashape.unirest.http.exceptions.UnirestException;
+import helpers.AutoCompleteComboBoxListener;
 import helpers.MetaData;
 import helpers.Msg;
 import java.net.URL;
@@ -59,6 +60,16 @@ public class DeleteSupplierController implements Initializable {
             Logger.getLogger(EditSupplierController.class.getName()).log(Level.SEVERE, null, ex);
             Msg.showError("");
         }
+        
+        new AutoCompleteComboBoxListener<>(this.select_supplier);
+        this.select_supplier.setOnHiding((e)->{
+            Supplier a = this.select_supplier.getSelectionModel().getSelectedItem();
+            this.select_supplier.setEditable(false);
+            this.select_supplier.getSelectionModel().select(a);
+        });
+        this.select_supplier.setOnShowing((e)->{
+            this.select_supplier.setEditable(true);
+        });
     }    
 
     @FXML

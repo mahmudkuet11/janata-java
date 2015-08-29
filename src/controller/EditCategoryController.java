@@ -7,6 +7,7 @@ package controller;
 
 import com.mashape.unirest.http.Unirest;
 import com.mashape.unirest.http.exceptions.UnirestException;
+import helpers.AutoCompleteComboBoxListener;
 import helpers.MetaData;
 import helpers.Msg;
 import java.net.URL;
@@ -21,6 +22,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import model.Category;
+import model.Supplier;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -47,6 +49,15 @@ public class EditCategoryController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        new AutoCompleteComboBoxListener<>(this.select_category);
+        this.select_category.setOnHiding((e)->{
+            Category a = this.select_category.getSelectionModel().getSelectedItem();
+            this.select_category.setEditable(false);
+            this.select_category.getSelectionModel().select(a);
+        });
+        this.select_category.setOnShowing((e)->{
+            this.select_category.setEditable(true);
+        });
         category_list = FXCollections.observableArrayList();
         try {
             JSONArray res = Unirest.get(MetaData.baseUrl + "get/category").asJson().getBody().getArray();

@@ -9,6 +9,7 @@ import com.mashape.unirest.http.HttpResponse;
 import com.mashape.unirest.http.JsonNode;
 import com.mashape.unirest.http.Unirest;
 import com.mashape.unirest.http.exceptions.UnirestException;
+import helpers.AutoCompleteComboBoxListener;
 import helpers.MetaData;
 import helpers.Msg;
 import helpers.Report;
@@ -133,6 +134,28 @@ public class NewSellVoucherController implements Initializable {
         *   caret init
         */
         this.caret.getItems().addAll("18","21","22");
+        
+        new AutoCompleteComboBoxListener<>(this.customer);
+        this.customer.setOnHiding((e)->{
+            Customer a = this.customer.getSelectionModel().getSelectedItem();
+            this.customer.setEditable(false);
+            this.customer.getSelectionModel().select(a);
+        });
+        this.customer.setOnShowing((e)->{
+            this.customer.setEditable(true);
+        });
+        
+        new AutoCompleteComboBoxListener<>(this.item);
+        this.item.setOnHiding((e)->{
+            Category a = this.item.getSelectionModel().getSelectedItem();
+            this.item.setEditable(false);
+            this.item.getSelectionModel().select(a);
+        });
+        this.item.setOnShowing((e)->{
+            this.item.setEditable(true);
+        });
+        
+        
     }    
 
     @FXML

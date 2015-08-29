@@ -7,6 +7,7 @@ package controller;
 
 import com.mashape.unirest.http.Unirest;
 import com.mashape.unirest.http.exceptions.UnirestException;
+import helpers.AutoCompleteComboBoxListener;
 import helpers.MetaData;
 import helpers.Msg;
 import helpers.Report;
@@ -29,6 +30,7 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import model.ExpenseCategory;
 import model.PurchaseReport;
 import model.Supplier;
 import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
@@ -75,6 +77,18 @@ public class SupplierWisePurchaseReportController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        
+        new AutoCompleteComboBoxListener<>(this.supplier);
+        this.supplier.setOnHiding((e)->{
+            Supplier a = this.supplier.getSelectionModel().getSelectedItem();
+            this.supplier.setEditable(false);
+            this.supplier.getSelectionModel().select(a);
+        });
+        this.supplier.setOnShowing((e)->{
+            this.supplier.setEditable(true);
+        });
+        
+        
         this.list = FXCollections.observableArrayList();
         sl.setCellValueFactory(new PropertyValueFactory("sl"));
         id.setCellValueFactory(new PropertyValueFactory("id"));

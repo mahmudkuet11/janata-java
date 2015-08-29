@@ -7,6 +7,7 @@ package controller;
 
 import com.mashape.unirest.http.Unirest;
 import com.mashape.unirest.http.exceptions.UnirestException;
+import helpers.AutoCompleteComboBoxListener;
 import helpers.MetaData;
 import helpers.Msg;
 import java.net.URL;
@@ -20,6 +21,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import model.Category;
 import model.ExpenseCategory;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -59,6 +61,16 @@ public class NewExpenseVoucherController implements Initializable {
         } catch (UnirestException ex) {
             Logger.getLogger(NewExpenseVoucherController.class.getName()).log(Level.SEVERE, null, ex);
             Msg.showError("");
+        }finally{
+            new AutoCompleteComboBoxListener<>(this.category);
+            this.category.setOnHiding((e)->{
+                ExpenseCategory a = this.category.getSelectionModel().getSelectedItem();
+                this.category.setEditable(false);
+                this.category.getSelectionModel().select(a);
+            });
+            this.category.setOnShowing((e)->{
+                this.category.setEditable(true);
+            });
         }
     }    
 

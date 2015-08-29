@@ -7,6 +7,7 @@ package controller;
 
 import com.mashape.unirest.http.Unirest;
 import com.mashape.unirest.http.exceptions.UnirestException;
+import helpers.AutoCompleteComboBoxListener;
 import helpers.MetaData;
 import helpers.Msg;
 import java.net.URL;
@@ -40,6 +41,17 @@ public class DeleteExpenseCategoryController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        new AutoCompleteComboBoxListener<>(this.select_exp_cat);
+        this.select_exp_cat.setOnHiding((e)->{
+            ExpenseCategory a = this.select_exp_cat.getSelectionModel().getSelectedItem();
+            this.select_exp_cat.setEditable(false);
+            this.select_exp_cat.getSelectionModel().select(a);
+        });
+        this.select_exp_cat.setOnShowing((e)->{
+            this.select_exp_cat.setEditable(true);
+        });
+        
+        
         exp_list = FXCollections.observableArrayList();
         try {
             JSONArray res = Unirest.get(MetaData.baseUrl + "get/expense-category").asJson().getBody().getArray();

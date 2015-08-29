@@ -9,6 +9,7 @@ import com.mashape.unirest.http.HttpResponse;
 import com.mashape.unirest.http.JsonNode;
 import com.mashape.unirest.http.Unirest;
 import com.mashape.unirest.http.exceptions.UnirestException;
+import helpers.AutoCompleteComboBoxListener;
 import helpers.MetaData;
 import helpers.Msg;
 import java.net.URL;
@@ -61,6 +62,16 @@ public class EditCustomerController implements Initializable {
         } catch (UnirestException ex) {
             Logger.getLogger(EditCustomerController.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
+        new AutoCompleteComboBoxListener<>(this.select_customer);
+        this.select_customer.setOnHiding((e)->{
+            Customer a = this.select_customer.getSelectionModel().getSelectedItem();
+            this.select_customer.setEditable(false);
+            this.select_customer.getSelectionModel().select(a);
+        });
+        this.select_customer.setOnShowing((e)->{
+            this.select_customer.setEditable(true);
+        });
     }    
 
     @FXML

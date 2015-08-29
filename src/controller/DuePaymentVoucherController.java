@@ -7,6 +7,7 @@ package controller;
 
 import com.mashape.unirest.http.Unirest;
 import com.mashape.unirest.http.exceptions.UnirestException;
+import helpers.AutoCompleteComboBoxListener;
 import helpers.MetaData;
 import helpers.Msg;
 import model.DuePayment;
@@ -30,6 +31,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
+import model.Category;
 import model.Customer;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -107,6 +109,16 @@ public class DuePaymentVoucherController implements Initializable {
             Msg.showError("");
         }
         this.sl.setEditable(true);
+        
+        new AutoCompleteComboBoxListener<>(this.customer);
+        this.customer.setOnHiding((e)->{
+            Customer a = this.customer.getSelectionModel().getSelectedItem();
+            this.customer.setEditable(false);
+            this.customer.getSelectionModel().select(a);
+        });
+        this.customer.setOnShowing((e)->{
+            this.customer.setEditable(true);
+        });
     }    
 
     @FXML

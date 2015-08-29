@@ -7,6 +7,7 @@ package controller;
 
 import com.mashape.unirest.http.Unirest;
 import com.mashape.unirest.http.exceptions.UnirestException;
+import helpers.AutoCompleteComboBoxListener;
 import helpers.MetaData;
 import helpers.Msg;
 import java.net.URL;
@@ -19,6 +20,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import model.Customer;
 import model.Supplier;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -59,6 +61,16 @@ public class EditSupplierController implements Initializable {
             Logger.getLogger(EditSupplierController.class.getName()).log(Level.SEVERE, null, ex);
             Msg.showError("");
         }
+        
+        new AutoCompleteComboBoxListener<>(this.select_supplier);
+        this.select_supplier.setOnHiding((e)->{
+            Supplier a = this.select_supplier.getSelectionModel().getSelectedItem();
+            this.select_supplier.setEditable(false);
+            this.select_supplier.getSelectionModel().select(a);
+        });
+        this.select_supplier.setOnShowing((e)->{
+            this.select_supplier.setEditable(true);
+        });
     }    
 
 
