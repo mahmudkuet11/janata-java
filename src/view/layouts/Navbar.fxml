@@ -66,6 +66,20 @@
             <MenuItem mnemonicParsing="false" onAction="#onDeleteExpenseCategoryClick" text="Delete Expence Category" />
          </items>
       </Menu>
+      <Menu mnemonicParsing="false" text="Cash and Bank">
+         <items>
+            <Menu mnemonicParsing="false" text="Cash Account">
+              <items>
+                <MenuItem mnemonicParsing="false" onAction="#onCashDepositClick" text="Cash Deposit" />
+              </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Bank Account">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#onBankDepositClick" text="Bank Deposit" />
+               </items>
+            </Menu>
+         </items>
+      </Menu>
       <Menu mnemonicParsing="false" text="Report">
          <items>
             <MenuItem mnemonicParsing="false" onAction="#onPurchaseReportClick" text="Purchase Report" />
