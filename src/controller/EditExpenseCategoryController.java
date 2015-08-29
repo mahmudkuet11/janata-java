@@ -94,6 +94,9 @@ public class EditExpenseCategoryController implements Initializable {
         } catch (UnirestException ex) {
             Logger.getLogger(EditExpenseCategoryController.class.getName()).log(Level.SEVERE, null, ex);
             Msg.showError("");
+        }finally{
+            this.name.setText("");
+            this.select_exp_cat.getSelectionModel().clearSelection();
         }
     }
 

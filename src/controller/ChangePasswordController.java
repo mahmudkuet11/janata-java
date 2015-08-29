@@ -64,6 +64,10 @@ public class ChangePasswordController implements Initializable {
                 Logger.getLogger(ChangePasswordController.class.getName()).log(Level.SEVERE, null, ex);
                 Msg.showError("");
                 return;
+            }finally{
+                this.new_password.setText("");
+                this.old_password.setText("");
+                this.re_password.setText("");
             }
         }
     }

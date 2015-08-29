@@ -61,6 +61,10 @@ public class BankDepositController implements Initializable {
         } catch (UnirestException ex) {
             Logger.getLogger(CashDepositController.class.getName()).log(Level.SEVERE, null, ex);
             Msg.showError("");
+        }finally{
+            this.amount.setText("");
+            this.note.setText("");
+            this.date.setValue(null);
         }
     }
     

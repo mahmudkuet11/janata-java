@@ -10,17 +10,22 @@ import com.mashape.unirest.http.exceptions.UnirestException;
 import helpers.AutoCompleteComboBoxListener;
 import helpers.MetaData;
 import helpers.Msg;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 import model.Category;
 import model.Supplier;
 import org.json.JSONArray;
@@ -103,7 +108,7 @@ public class NewPurchaseVoucherController implements Initializable {
     }    
 
     @FXML
-    private void onSaveButtonClick(ActionEvent event) {
+    private void onSaveButtonClick(ActionEvent event) throws IOException {
         try{
             String date = this.date.getValue().toString();
             int supplier = this.supplier.getSelectionModel().getSelectedItem().getId();
@@ -141,6 +146,13 @@ public class NewPurchaseVoucherController implements Initializable {
         }catch(Exception ex){
             Logger.getLogger(NewPurchaseVoucherController.class.getName()).log(Level.SEVERE, null, ex);
             Msg.showError("");
+        }finally{
+            Parent root = FXMLLoader.load(getClass().getResource("/view/NewPurchaseVoucher.fxml"));
+            Scene scene = this.caret.getScene();
+            Stage stage = (Stage)caret.getScene().getWindow();
+            scene.setRoot(root);
+            stage.setScene(scene);
+            stage.setTitle("New Purchase Voucher");
         }
     }
 

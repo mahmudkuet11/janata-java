@@ -60,6 +60,10 @@ public class AddNewSupplierController implements Initializable {
         } catch (UnirestException ex) {
             Logger.getLogger(AddNewSupplierController.class.getName()).log(Level.SEVERE, null, ex);
             Msg.showError("");
+        }finally{
+            this.name.setText("");
+            this.phone.setText("");
+            this.address.setText("");
         }
     }
     

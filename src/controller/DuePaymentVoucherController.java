@@ -10,19 +10,20 @@ import com.mashape.unirest.http.exceptions.UnirestException;
 import helpers.AutoCompleteComboBoxListener;
 import helpers.MetaData;
 import helpers.Msg;
+import java.io.IOException;
 import model.DuePayment;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javafx.beans.InvalidationListener;
-import javafx.beans.Observable;
 import javafx.collections.FXCollections;
-import javafx.collections.ListChangeListener;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TableColumn;
@@ -31,7 +32,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
-import model.Category;
+import javafx.stage.Stage;
 import model.Customer;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -159,7 +160,7 @@ public class DuePaymentVoucherController implements Initializable {
     }
 
     @FXML
-    private void onReceiveDueButtonClick(ActionEvent event) {
+    private void onReceiveDueButtonClick(ActionEvent event) throws IOException {
         if(this.table.getSelectionModel().isEmpty()){
             return;
         }
@@ -189,6 +190,13 @@ public class DuePaymentVoucherController implements Initializable {
         } catch (UnirestException ex) {
             Logger.getLogger(DuePaymentVoucherController.class.getName()).log(Level.SEVERE, null, ex);
             Msg.showError("");
+        }finally{
+            Parent root = FXMLLoader.load(getClass().getResource("/view/DuePaymentVoucher.fxml"));
+            Scene scene = this.amount.getScene();
+            Stage stage = (Stage)this.amount.getScene().getWindow();
+            scene.setRoot(root);
+            stage.setScene(scene);
+            stage.setTitle("Due Payment");
         }
     }
 

@@ -110,6 +110,12 @@ public class EditCategoryController implements Initializable {
         }catch (Exception ex) {
             Logger.getLogger(EditCategoryController.class.getName()).log(Level.SEVERE, null, ex);
             Msg.showError("");
+        }finally{
+            this.name.setText("");
+            this.p_price.setText("");
+            this.s_price.setText("");
+            this.warning_qty.setText("");
+            this.select_category.getSelectionModel().clearSelection();
         }
     }
 

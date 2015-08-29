@@ -13,6 +13,7 @@ import helpers.AutoCompleteComboBoxListener;
 import helpers.MetaData;
 import helpers.Msg;
 import helpers.Report;
+import java.io.IOException;
 import java.net.URL;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -23,12 +24,16 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 import model.Category;
 import model.Customer;
 import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
@@ -169,7 +174,7 @@ public class NewSellVoucherController implements Initializable {
     }
 
     @FXML
-    private void onSubmitButtonClick(ActionEvent event) {
+    private void onSubmitButtonClick(ActionEvent event) throws IOException {
         /*
         *   to add sell voucher
         */
@@ -251,6 +256,14 @@ public class NewSellVoucherController implements Initializable {
         } catch (ParseException ex) {
             Logger.getLogger(NewSellVoucherController.class.getName()).log(Level.SEVERE, null, ex);
             Msg.showError("Please enter the date correctly.");
+        }finally{
+            Parent root = FXMLLoader.load(getClass().getResource("/view/NewSellVoucher.fxml"));
+            Scene scene = this.address.getScene();
+            Stage stage = (Stage)address.getScene().getWindow();
+            scene.setRoot(root);
+            stage.setScene(scene);
+            stage.setTitle("New Sale Voucher");
+            
         }
     }
 

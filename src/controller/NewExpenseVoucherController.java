@@ -101,6 +101,10 @@ public class NewExpenseVoucherController implements Initializable {
         } catch (UnirestException ex) {
             Logger.getLogger(NewExpenseVoucherController.class.getName()).log(Level.SEVERE, null, ex);
             Msg.showError("");
+        }finally{
+            this.category.getSelectionModel().clearSelection();
+            this.amount.setText("");
+            this.note.setText("");
         }
     }
     

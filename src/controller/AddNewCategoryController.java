@@ -68,6 +68,11 @@ public class AddNewCategoryController implements Initializable {
         } catch (UnirestException ex) {
             Logger.getLogger(AddNewCategoryController.class.getName()).log(Level.SEVERE, null, ex);
             Msg.showError("");
+        }finally{
+            this.name.setText("");
+            this.purchase_price.setText("");
+            this.sales_price.setText("");
+            this.warning_quantity.setText("");
         }
     }
     

@@ -52,6 +52,8 @@ public class AddNewExpenseCategoryController implements Initializable {
         } catch (UnirestException ex) {
             Logger.getLogger(AddNewExpenseCategoryController.class.getName()).log(Level.SEVERE, null, ex);
             Msg.showError("");
+        }finally{
+            this.name.setText("");
         }
     }
     

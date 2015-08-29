@@ -60,6 +60,9 @@ public class BankWithdrawController implements Initializable {
         } catch (UnirestException ex) {
             Logger.getLogger(BankWithdrawController.class.getName()).log(Level.SEVERE, null, ex);
             Msg.showError("");
+        }finally{
+            this.amount.setText("");
+            this.date.setValue(null);
         }
     }
     
