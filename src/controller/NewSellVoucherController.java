@@ -33,6 +33,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 import model.Category;
 import model.Customer;
@@ -304,6 +305,44 @@ public class NewSellVoucherController implements Initializable {
         }catch(Exception ex){
             Msg.showError("Please enter all of the informations.");
         }
+    }
+
+    @FXML
+    private void onQuantityEnter(KeyEvent event) {
+        calculateTotalAmount();
+    }
+    
+    public void calculateTotalAmount(){
+        int quantity = this.quantity.getText().isEmpty() ? 0 : Integer.parseInt(this.quantity.getText());
+        float rate = this.rate.getText().isEmpty() ? 0 : Float.parseFloat(this.rate.getText());
+        
+        this.total.setText(String.valueOf(quantity * rate));
+    }
+
+    @FXML
+    private void onSalesRateEnter(KeyEvent event) {
+        calculateTotalAmount();
+    }
+
+    @FXML
+    private void onPaidEnter(KeyEvent event) {
+        float total = this.total.getText().isEmpty() ? 0 : Float.parseFloat(this.total.getText());
+        float paid = this.paid.getText().isEmpty() ? 0 : Float.parseFloat(this.paid.getText());
+        
+        this.due.setText(String.valueOf(total - paid));
+    }
+
+    @FXML
+    private void onLossEnter(KeyEvent event) {
+        float loss = this.loss.getText().isEmpty() ? 0 : Float.parseFloat(this.loss.getText());
+        float total = this.total_weight.getText().isEmpty() ? 0 : Float.parseFloat(this.total_weight.getText());
+        
+        this.weight_without_loss.setText(String.valueOf(total - loss));
+    }
+
+    @FXML
+    private void onSelectItem(ActionEvent event) {
+        this.rate.setText(String.valueOf(this.item.getSelectionModel().getSelectedItem().getS_price()));
     }
     
 }

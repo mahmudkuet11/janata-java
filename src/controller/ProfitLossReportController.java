@@ -56,6 +56,12 @@ public class ProfitLossReportController implements Initializable {
 
     @FXML
     private void onShowButtonClick(ActionEvent event) {
+        this.paid.setText("0");
+        this.due.setText("0");
+        this.sell.setText("0");
+        this.purchase.setText("0");
+        this.expense.setText("0");
+        this.profit.setText("0");
         
         String start = this.start.getValue().toString();
         String end = this.end.getValue().toString();
@@ -68,12 +74,12 @@ public class ProfitLossReportController implements Initializable {
             this.paid.setText(res.getString("total_paid"));
             this.due.setText(res.getString("total_due"));
             this.sell.setText(res.getString("total_sell"));
-            this.purchase.setText(res.getString("total_purchase"));
+            this.purchase.setText(res.get("total_purchase").toString());
             this.expense.setText(res.getString("total_expense"));
             
             float sell = 0, purchase = 0, expense = 0, profit = 0;
             sell = Float.parseFloat(res.getString("total_sell"));
-            purchase = Float.parseFloat(res.getString("total_purchase"));
+            purchase = Float.parseFloat(res.get("total_purchase").toString());
             expense = Float.parseFloat(res.getString("total_expense"));
             profit = sell - purchase - expense;
             if(profit < 0){
